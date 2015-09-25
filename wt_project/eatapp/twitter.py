@@ -16,6 +16,6 @@ class TwitterPostEvent(event.Event):
 
 event = TwitterPostEvent()
 action = TwitterAction()
-variable_mapping = { action: { 'name': 'username' }}
+variable_mapping = { action: { 'name': 'username' } }
 trigger = trigger.Trigger(event, [action], variable_mapping)
 

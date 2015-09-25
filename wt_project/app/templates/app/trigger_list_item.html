@@ -1,0 +1,30 @@
+{% extends "app/base.html" %}
+
+    {% block triggers %}
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Your triggers</h1>
+        <p>This is a list of all the triggers that you've created. Press the plus button to add a new one!</p>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <div class="container">
+    <ul class="list-group">
+    <li class="list-group-item"><span><button href="type="button pull-right" class="btn btn-sm btn-default">Add trigger</button></span></li>
+    {% for object in object_list %}
+      
+    <a href="#" class="list-group-item"><span class="badge">{{ object.created }}</span> {{ object.name }}</a>
+
+    
+
+
+
+    {% endfor %}
+    </ul>
+
+    {% endblock %}

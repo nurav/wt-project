@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'eatapp',
     'app_api',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'wt_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'app/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,6 +85,20 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'social.backends.open_id.OpenIdAuth',
+    'social.backends.google.GoogleOpenId',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.google.GoogleOAuth',
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.yahoo.YahooOpenId',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -103,3 +118,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+# Python Social Auth Keys
+
+SOCIAL_AUTH_TWITTER_KEY = 'WCSRVJPnIGn4o9vsuC7XvSb27'
+SOCIAL_AUTH_TWITTER_SECRET = 'ZCkGxKw8KAMuAM2aLRTdII7oJUtA1rH6hmeCeSO1XgXZOnpdLO'
+
+SOCIAL_AUTH_PIPELINE = (
+    'social_auth.backends.pipeline.social.social_auth_user',
+    'social_auth.backends.pipeline.associate.associate_by_email',
+    'social_auth.backends.pipeline.misc.save_status_to_session',
+    'social.pipeline.redirect_to_form',
+    'social.pipeline.username',
+    'social_auth.backends.pipeline.user.create_user',
+    'social_auth.backends.pipeline.social.associate_user',
+    'social_auth.backends.pipeline.social.load_extra_data',
+    'social_auth.backends.pipeline.user.update_user_details',
+    'social_auth.backends.pipeline.misc.save_status_to_session',
+    'social.pipeline.redirect_to_form2',
+    'social.pipeline.first_name',
+)
+
