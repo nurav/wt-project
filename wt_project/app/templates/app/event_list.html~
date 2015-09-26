@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+
+{% load staticfiles %}
+    {% block triggers %}
+<link rel="stylesheet" type="text/css" href="{% static "css/event_page.css" %}">
+    <div>
+<br/>
+<br/>
+<button type="button" class="btn btn-primary">Select Event</button>
+<button type="button" class="btn btn-success">Select Action</button>
+<button type="button" class="btn btn-warning">Create Trigger</button>
+</div>
+
+<br/>
+<br/>
+
+    <div class="row">
+        
+    </div>
+
+<div class="row">
+  <div class="col-sm-4"><label class="radio-inline">
+          <input type="radio" name="radioGroup" id="radio1" value="option1">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/F_icon.svg"
+            alt="..." class="img-rounded">
+        </label></div>
+  <div class="col-sm-4"><label class="radio-inline">
+          <input type="radio" name="radioGroup" id="radio2" value="option2"> <img src="http://imageshack.us/a/img838/9050/7yu5.jpg"
+            alt="..." class="img-rounded">
+        </label></div>
+  <div class="col-sm-4"><label class="radio-inline">
+          <input type="radio" name="radioGroup" id="radio2" value="option2"> <img src="http://cdn.flaticon.com/png/256/25231.png"
+            alt="..." class="img-rounded">
+        </label></div>
+</div>
+
+
+    {% endblock %}
