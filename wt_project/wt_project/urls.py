@@ -21,9 +21,6 @@ urlpatterns = [
     url('', include('social.apps.django_app.urls', namespace='social')),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^trigger/', include(app.urls)),
-    url('^', include('django.contrib.auth.urls')),
-    url(r'^$', 'app.views.index', name='index'),
-    url(r'^accounts/profile', 'app.views.profile', name='profile'),
-    # url(r'^', include('wt_project.urls')),
+    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^', include(app.urls)),
 ]

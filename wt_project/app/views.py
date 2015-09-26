@@ -1,5 +1,5 @@
 from django.views import generic
-from app_api import models
+from . import models
 from django.contrib.auth import views
 from django.shortcuts import render_to_response
 

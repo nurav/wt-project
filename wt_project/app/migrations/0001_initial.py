@@ -15,9 +15,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='APIAuthenticationKey',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('service', models.CharField(choices=[('facebook', 'facebook'), ('twitter', 'twitter')], max_length=20)),
+                ('service', models.CharField(choices=[('twitter', 'twitter'), ('facebook', 'facebook')], max_length=20)),
                 ('auth_data', models.TextField()),
                 ('user', models.ForeignKey(related_name='api_auth_keys', to=settings.AUTH_USER_MODEL)),
             ],
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Trigger',
             fields=[
-                ('id', models.AutoField(serialize=False, auto_created=True, primary_key=True, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', auto_created=True, serialize=False, primary_key=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('action', models.CharField(max_length=50)),
                 ('event', models.CharField(max_length=50)),

@@ -37,9 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'app',
     'eatapp',
-    'app_api',
     'social.apps.django_app.default',
 )
 
@@ -139,4 +138,11 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.redirect_to_form2',
     'social.pipeline.first_name',
 )
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'varunjoshi'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
