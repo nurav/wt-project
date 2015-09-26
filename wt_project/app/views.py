@@ -38,3 +38,5 @@ class TriggerWizard(SessionWizardView):
 		super(ClassName, self).__init__()
 		self.arg = arg
 		
+
+
