@@ -1,0 +1,13 @@
+defusedxml==0.4.1
+Django==1.8.4
+django-crispy-forms==1.5.2
+django-registration-bootstrap==0.2.0
+django-registration-redux==1.2
+djangorestframework==3.2.4
+oauthlib==1.0.3
+PyJWT==1.4.0
+python-social-auth==0.2.13
+python3-openid==3.0.7
+requests==2.7.0
+requests-oauthlib==0.5.0
+six==1.9.0

@@ -37,10 +37,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration_bootstrap',
     'registration',
     'app',
     'eatapp',
     'social.apps.django_app.default',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -67,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social.apps.django_app.context_processors.backends',
+                'social.apps.django_app.context_processors.login_redirect',
             ],
         },
     },
@@ -93,11 +97,6 @@ AUTHENTICATION_BACKENDS = (
     'social.backends.twitter.TwitterOAuth',
     'social.backends.yahoo.YahooOpenId',
     'django.contrib.auth.backends.ModelBackend',
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
 )
 
 # Internationalization
@@ -147,5 +146,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 REGISTRATION_AUTO_LOGIN = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 

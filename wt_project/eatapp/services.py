@@ -1,19 +1,19 @@
-# import eatapp.twitter
+from . import twitter
 
 SERVICES = {
-    'facebook': 'facebook',
-    'twitter': 'twitter',
+    ('twitter', 'Twitter') : twitter,
     }
 
-SERVICE_NAMES = [(item, item) for item in SERVICES.keys()]
+SERVICE_NAMES = SERVICES.keys()
 
-ACTIONS = {
-    'facebook' : {
-        'new_post' : 'new_post',
-        'new_photo' : 'new_photo',
-        },
-    'twitter' : {
-        'new_tweet' : 'new_tweet',
-        'retweet' : 'retweet',
-        },
-    }
+EVENT_NAMES = []
+
+for service in SERVICES.values():
+    for event in service.EVENT_NAMES:
+        EVENT_NAMES.append(event)
+
+ACTION_NAMES = []
+
+for service in SERVICES.values():
+    for event in service.ACTION_NAMES:
+        EVENT_NAMES.append(event)
