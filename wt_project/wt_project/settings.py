@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
     'app',
     'eatapp',
     'social.apps.django_app.default',
@@ -144,5 +145,7 @@ EMAIL_HOST_USER = 'varunjoshi'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+REGISTRATION_AUTO_LOGIN = True
 
 
