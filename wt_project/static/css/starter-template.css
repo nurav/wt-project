@@ -1,8 +1,17 @@
 body {
   padding-top: 50px;
 }
+
+.panel-space-on-top {
+  margin-top: 10px;
+}
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.form-content {
+	margin: 10px 10px 10px 10px;
 }
 

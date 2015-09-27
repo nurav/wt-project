@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'eatapp',
     'social.apps.django_app.default',
     'crispy_forms',
+    'bootstrap3',
 )
 
 MIDDLEWARE_CLASSES = (
