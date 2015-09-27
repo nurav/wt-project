@@ -126,18 +126,18 @@ SOCIAL_AUTH_TWITTER_KEY = 'WCSRVJPnIGn4o9vsuC7XvSb27'
 SOCIAL_AUTH_TWITTER_SECRET = 'ZCkGxKw8KAMuAM2aLRTdII7oJUtA1rH6hmeCeSO1XgXZOnpdLO'
 
 SOCIAL_AUTH_PIPELINE = (
-    'social_auth.backends.pipeline.social.social_auth_user',
-    'social_auth.backends.pipeline.associate.associate_by_email',
-    'social_auth.backends.pipeline.misc.save_status_to_session',
-    'social.pipeline.redirect_to_form',
-    'social.pipeline.username',
-    'social_auth.backends.pipeline.user.create_user',
-    'social_auth.backends.pipeline.social.associate_user',
-    'social_auth.backends.pipeline.social.load_extra_data',
-    'social_auth.backends.pipeline.user.update_user_details',
-    'social_auth.backends.pipeline.misc.save_status_to_session',
-    'social.pipeline.redirect_to_form2',
-    'social.pipeline.first_name',
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.mail.mail_validation',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.debug.debug',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+    'social.pipeline.debug.debug'
 )
 
 EMAIL_HOST = 'smtp.sendgrid.net'

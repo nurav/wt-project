@@ -12,5 +12,7 @@ urlpatterns = [
     		forms.SelectActionForm,
     		forms.TriggerDescriptionForm,
     	]), name='new-trigger-wizard'
-    )
+    ),
+    url(r'^services/$', views.home, name='services-home'),
+    url(r'^done/$', views.done, name='services-done'),
 ]
