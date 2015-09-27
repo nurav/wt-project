@@ -14,12 +14,12 @@ class APIAuthenticationKey(models.Model):
 class Trigger(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey('auth.User', related_name='triggers')
-    original_user = models.ForeignKey('auth.User', related_name='created_trigger')
+    original_user = models.ForeignKey('auth.User', default=0, related_name='created_trigger')
     action = models.CharField(max_length=50)
     event = models.CharField(max_length=50)
     script = models.TextField()
-    shared = models.BooleanField()
-    enabled = models.BooleanField()
+    shared = models.BooleanField(default=False)
+    enabled = models.BooleanField(default=True)
     name = models.CharField(max_length=100, blank=False)
 
 class Event(models.Model):
