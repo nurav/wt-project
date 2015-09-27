@@ -1,4 +1,7 @@
-{% load backend_utils %}
+{% extends 'base.html' %}
+{% load backend_utils %} 
+
+{% block content %}
 <!doctype html>
 <html>
   <head>
@@ -20,7 +23,7 @@
     </style>
   </head>
   <body>
-    <h1>Python Social Auth</h1>
+    <h1>Connected Services</h1>
 
     <div class="buttons">
       {% if user.is_authenticated %}
@@ -77,10 +80,7 @@
           {% endif %}
         {% endfor %}
 
-        <a class="btn btn-info" name="ajax-login" href="#">
-          <i class="fa fa-refresh"></i>
-          Ajax
-        </a>
+
       </div>
 
       <div>
@@ -445,3 +445,4 @@
     </script>
   </body>
 </html>
+{% endblock %}

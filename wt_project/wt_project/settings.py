@@ -140,13 +140,14 @@ SOCIAL_AUTH_PIPELINE = (
     'social.pipeline.debug.debug'
 )
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'varunjoshi'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'space.panel.debate@gmail.com'
+EMAIL_HOST_PASSWORD = 'spacepanel123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 REGISTRATION_AUTO_LOGIN = True
+ACCOUNT_ACTIVATION_DAYS = 30
 
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 
