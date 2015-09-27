@@ -7,6 +7,8 @@ urlpatterns = [
  	url(r'^$', 'app.views.index', name='index'),
     url(r'^accounts/profile', 'app.views.profile', name='profile'),
     url('^events/', views.event_list),
+    url('^welcome/', views.welcome),
+    url('^trigger_success/', views.trigger_success),
     url('triggers/new/$', views.TriggerWizard.as_view([
     		forms.SelectEventForm,
     		forms.SelectActionForm,
