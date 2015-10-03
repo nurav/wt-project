@@ -23,7 +23,7 @@
     </li>
     {% for object in object_list %}
       
-    <a href="#" class="list-group-item"><span class="badge">{{ object.created }}</span> {{ object.name }}</a>
+    <a href="{% url 'trigger-detail' object.pk %}" class="list-group-item"><span class="badge">{{ object.created }}</span> {{ object.name }}</a>
 
     {% empty %}
     <a href="#" class="list-group-item">You do not have any triggers yet! Add a new one to begin.</a>

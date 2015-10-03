@@ -15,13 +15,13 @@
 <div class="panel panel-default panel-space-on-top">
 <div class="panel-heading">
 	<div class="btn-group text-center" data-toggle="buttons">
-	  <label class="btn btn-primary {% if wizard.steps.steps1 == 1 %}active{% endif %}">
+	  <label class="btn btn-primary {% if wizard.steps.current == '0' %}active{% endif %}">
 	    <input type="radio" autocomplete="off"> Select Event
 	  </label>
-	  <label class="btn btn-primary {% if wizard.steps.steps1 == 2 %}active{% endif %}">
+	  <label class="btn btn-primary {% if wizard.steps.current == '1' %}active{% endif %}">
 	    <input type="radio" autocomplete="off"> Select Action
 	  </label>
-	  <label class="btn btn-primary {% if wizard.steps.steps1 == 3 %}active{% endif %}">
+	  <label class="btn btn-primary {% if wizard.steps.current == '2' %}active{% endif %}">
 	    <input type="radio" autocomplete="off"> Create Trigger
 	  </label>
 	</div>

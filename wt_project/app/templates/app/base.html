@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,14 +13,14 @@
     <title>E.A.T.</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../static/css/starter-template.css" rel="stylesheet">
+    <link href="{% static "css/starter-template.css" %}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,25 +44,68 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="{% url 'trigger-list' %}">Your triggers</a></li>
+            <li class="active"><a href="{% url 'shared-trigger-list' %}">Shared triggers</a></li>
+
+            </ul>
+            {% if user.is_authenticated %}
+            <ul class="nav navbar-nav navbar-right">
+              <li class="pull-right">
+                  <a href="#" class="pull-right dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{ user.username }} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a id="profile" href="#">Profile</a></li>
+                    <li><a id="services" href="#">Services</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a id="sign-out" href="#">Sign out</a></li>
+                  </ul>
+                </li>
           </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li><a href="#login">Hi, {{ user.username }}</a></li>
+          {% else %}
+          <ul class="nav navbar-nav navbar-right">
+              <li class="pull-right">
+                  <a href="#" class="pull-right dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a id="sign-up" href="#">New user? Sign up</a></li>
+                    <li><a id="sign-in" href="#">Sign in</a></li>
+                </li>
           </ul>
+          {% endif %}
+          
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
+    <div class="container">
     {% block triggers %} {% endblock %}
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+      $('#profile').on('click', function(e) {
+          window.location = "{% url 'profile' %}";
+      });
+
+      $('#services').on('click', function(e) {
+          window.location = "{% url 'services-home' %}";
+      });
+
+      $('#sign-up').on('click', function(e) {
+          window.location = "{% url 'registration_register' %}";
+      });
+
+      $('#sign-in').on('click', function(e) {
+          window.location = "{% url 'auth_login' %}";
+      });
+
+      $('#sign-out').on('click', function(e) {
+          window.location = "{% url 'auth_logout' %}";
+      });
+    </script>
   </body>
 </html>

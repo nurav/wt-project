@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block triggers %}
+<div class="panel panel-default panel-space-on-top">
+  <div class="panel-body">
+	<div class="trigger-container">
+		<h2>Event: {{ event }} </h2>
+		<h2>Action: {{ action }} </h2>
+		<form class="form-horizontal" action="" method="post">{% csrf_token %}
+		<table>
+
+	        {% bootstrap_form form %}
+
+		</table>
+		{% if wizard.steps.prev %}
+		<button class="btn btn-primary" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% trans "Back" %}</button>
+		{% endif %}
+		<input class="btn btn-primary" type="submit" value="{% trans "Save" %}"/>
+		</form>
+
+	</div>
+  </div>
+</div>
+
+{% endblock %}

@@ -46,12 +46,32 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="{% url 'trigger-list' %}">Home</a></li>
 
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="{% url 'trigger-list' %}">Your triggers</a></li>
+            <li><a href="{% url 'shared-trigger-list' %}">Shared triggers</a></li>
+            </ul>
+            {% if user.is_authenticated %}
+            <ul class="nav navbar-nav navbar-right">
+              <li class="pull-right">
+                  <a href="#" class="pull-right dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{ user.username }} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a id="profile" href="#">Profile</a></li>
+                    <li><a id="services" href="#">Services</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a id="sign-out" href="#">Sign out</a></li>
+                  </ul>
+                </li>
           </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li><a href="#login">Hi, {{ user.username }}</a></li>
+          {% else %}
+          <ul class="nav navbar-nav navbar-right">
+              <li class="pull-right">
+                  <a href="#" class="pull-right dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign up <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a id="sign-up" href="#">New user? Sign up</a></li>
+                    <li><a id="sign-in" href="#">Sign in</a></li>
+                </li>
           </ul>
+          {% endif %}
+          
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -67,5 +87,26 @@
     <script src="../../static/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript">
+      $('#profile').on('click', function(e) {
+          window.location = "{% url 'profile' %}";
+      });
+
+      $('#services').on('click', function(e) {
+          window.location = "{% url 'services-home' %}";
+      });
+
+      $('#sign-up').on('click', function(e) {
+          window.location = "{% url 'registration_register' %}";
+      });
+
+      $('#sign-in').on('click', function(e) {
+          window.location = "{% url 'auth_login' %}";
+      });
+
+      $('#sign-out').on('click', function(e) {
+          window.location = "{% url 'auth_logout' %}";
+      });
+    </script>
   </body>
 </html>

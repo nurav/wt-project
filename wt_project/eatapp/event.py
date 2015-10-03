@@ -10,7 +10,7 @@ class Event:
         return
 
     @abc.abstractmethod
-    def check_for_update(self):
+    def check_for_update(self, user):
         """Adds a hook to the event_listener
            TODO: Add meaningful documentation
         """

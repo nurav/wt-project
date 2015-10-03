@@ -1,24 +1,39 @@
 {% extends "base.html" %}
+{% load gravatar %}
 
 {% block content %}
-	<div class="row">
+	<div class="row panel-space-on-top">
       <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-           <A href="edit.html" >Edit Profile</A>
-
-        <A href="edit.html" >Logout</A>
-       <br>
-<p class=" text-info">May 05,2014,03:00 pm </p>
+         
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
    
    
-          <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{ user.username }}</h3>
-            </div>
-            
-              </div>
-            </div>
+
+        <div class="panel panel-default"> 
+          </div>
+          <div class="panel-body">
+          	<span>
+          		<img src="{% gravatar_url user.email %}">
+          		<h1> {{ user.username }} </h1>
+          		<p> Joined on {{ user.date_joined }} </p>
+          	</span>
+          	<ul class="list-group">
+			    
+          	{% for object in object_list %}
+		      
+		    <a href="{% url 'trigger-detail' object.pk %}" class="list-group-item"><span class="badge">{{ object.created }}</span> {{ object.name }}</a>
+
+		    {% empty %}
+		    <a href="#" class="list-group-item">You do not have any triggers yet! Add a new one to begin.</a>
+
+
+		    {% endfor %}
+		    </ul>
+          </div>
+          </div>
+
+        </div>
                 
             
           </div>

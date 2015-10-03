@@ -39,11 +39,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'registration_bootstrap',
     'registration',
+    'social.apps.django_app.default',
     'app',
     'eatapp',
-    'social.apps.django_app.default',
     'crispy_forms',
     'bootstrap3',
+    'wt_project',
+    'django_gravatar',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,11 +93,12 @@ DATABASES = {
 }
 
 AUTHENTICATION_BACKENDS = (
+    'social.backends.dropbox.DropboxOAuth',
     'social.backends.open_id.OpenIdAuth',
-    'social.backends.google.GoogleOpenId',
     'social.backends.google.GoogleOAuth2',
     'social.backends.google.GoogleOAuth',
     'social.backends.twitter.TwitterOAuth',
+    'social.backends.github.GithubOAuth2',
     'social.backends.yahoo.YahooOpenId',
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -151,4 +154,6 @@ ACCOUNT_ACTIVATION_DAYS = 30
 
 CRISPY_TEMPLATE_PACK = 'bootstrap'
 
+SOCIAL_AUTH_GITHUB_KEY = '7b82bd9e1b776cca28cc'
+SOCIAL_AUTH_GITHUB_SECRET = 'f1f300074bfe42d3065e128a91cc3aad7685e108'
 

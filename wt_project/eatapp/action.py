@@ -11,7 +11,7 @@ class Action:
         return
 
     @abc.abstractmethod
-    def do(self, **inputs):
+    def do(self, user, **inputs):
         """Executes the action
         """
         return

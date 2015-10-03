@@ -1,0 +1,30 @@
+{% extends "app/base.html" %}
+
+{% block triggers %}
+<div class="jumbotron">
+  <div class="container">
+    <h1> Shared triggers</h1>
+    <p>This is a list of all the triggers that users have created and shared.</p>
+  </div>
+</div>
+
+<div class="row">
+    
+</div>
+
+<div class="container">
+<h1>Shared Triggers</h1>
+<ul class="list-group">
+
+{% for object in object_list %}
+  
+<a href="{% url 'trigger-detail' object.pk %}" class="list-group-item"><span class="badge">{{ object.created }}</span> {{ object.name }}</a>
+
+{% empty %}
+<a href="#" class="list-group-item">You do not have any triggers yet! Add a new one to begin.</a>
+
+
+{% endfor %}
+</ul>
+
+{% endblock %}

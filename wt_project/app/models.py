@@ -18,14 +18,8 @@ class Trigger(models.Model):
     action = models.CharField(max_length=50)
     event = models.CharField(max_length=50)
     script = models.TextField()
+    description = models.TextField()
     shared = models.BooleanField(default=False)
     enabled = models.BooleanField(default=True)
     name = models.CharField(max_length=100, blank=False)
-
-class Event(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey('auth.User', related_name='events')
-    action = models.CharField(max_length=50)
-    event = models.CharField(max_length=50)
-    script = models.TextField()
-    name = models.CharField(max_length=100, blank=False)
+    variable_mapping = models.TextField(default='')
