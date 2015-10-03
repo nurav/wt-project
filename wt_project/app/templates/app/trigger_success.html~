@@ -1,0 +1,74 @@
+{% extends "app/base.html" %}
+
+{% load staticfiles %}
+    {% block triggers %}
+<link rel="stylesheet" type="text/css" href="{% static "css/heroic-fratures.css" %}">
+        <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer">
+            <h1>Congratulations!</h1>
+            <p>Your trigger was successfully created! Go back to the Trigger List to see the list of all successful triggers</p>
+            <p><a class="btn btn-primary btn-large">Go to Trigger List</a>
+            </p>
+        </header>
+
+        <hr>
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3></h3>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+
+        <div class="row text-center">
+	   
+            <div class="col-md-4 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://www.umf.hu/FB-f-Logo_blue_530.png" alt="">
+                    <div class="caption">
+                        <h3>Event</h3>
+                        <p>Facebook</p>
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+		
+            <div class="col-md-4 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQhdYOqPkOWoIIcSs05qOXywvktAT8_joAthaTqqXtaU7oQ7S7Jow" alt="">
+                    <div class="caption">
+                        <h3>Action</h3>
+                        <p>Twitter</p>
+                        <p>
+                            
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    {% endblock %}

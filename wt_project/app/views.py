@@ -85,6 +85,17 @@ def profile(request):
             None,
             context_instance=RequestContext(request))
 
+def welcome(request):
+    return render_to_response('app/welcome.html',
+        None,
+        context_instance=RequestContext(request))
+
+def trigger_success(request):
+    return render_to_response('app/trigger_success.html',
+        None,
+        context_instance=RequestContext(request))
+
+
 
 class TriggerWizard(SessionWizardView):
     template_name = 'app/new_trigger_wizard.html'
