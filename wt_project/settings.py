@@ -87,10 +87,17 @@ WSGI_APPLICATION = 'wt_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'wt_project',
+        'USER': 'projectuser',
+        'PASSWORD': 'eatapppass',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
 
 AUTHENTICATION_BACKENDS = (
     'social.backends.dropbox.DropboxOAuth',
@@ -156,4 +163,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap'
 
 SOCIAL_AUTH_GITHUB_KEY = '7b82bd9e1b776cca28cc'
 SOCIAL_AUTH_GITHUB_SECRET = 'f1f300074bfe42d3065e128a91cc3aad7685e108'
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = 'staticfiles'
 
