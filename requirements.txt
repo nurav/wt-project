@@ -8,7 +8,7 @@ click==5.1
 defusedxml==0.4.1
 dj-database-url==0.3.0
 dj-static==0.0.6
-Django==1.8.4
+Django==1.11.28
 django-bootstrap3==6.2.2
 django-crispy-forms==1.5.2
 django-formtools==1.0
