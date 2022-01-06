@@ -2,7 +2,7 @@ amqp==1.4.6
 anyjson==0.3.3
 arrow==0.5.4
 billiard==3.3.0.20
-celery==3.1.18
+celery==5.2.2
 cffi==1.2.1
 click==5.1
 defusedxml==0.4.1
